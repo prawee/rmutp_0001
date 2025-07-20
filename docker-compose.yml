@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: my_db_compose
+    ports:
+      - "55432:5432"
+    environment:
+      - POSTGRES_DB=prawee
+      - POSTGRES_USER=prawee
+      - POSTGRES_PASSWORD=prawee
