@@ -5,9 +5,9 @@ services:
     ports:
       - "55432:5432"
     environment:
-      - POSTGRES_DB=prawee
-      - POSTGRES_USER=prawee
-      - POSTGRES_PASSWORD=prawee
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
   app:
     image: prawee/strapi
     container_name: my_app_compose
@@ -16,6 +16,6 @@ services:
     environment:
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
-      - DATABASE_NAME=prawee
-      - DATABASE_USERNAME=prawee
-      - DATABASE_PASSWORD=prawee
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_USERNAME=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
