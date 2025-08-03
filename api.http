@@ -3,6 +3,8 @@
 @password={{$dotenv USER_PASSWORD}}
 @email={{$dotenv USER_EMAIL}}
 
+@token={{$dotenv USER_TOKEN}}
+
 ### Identification / Register account
 POST http://localhost:8090/api/auth/local/register HTTP/1.1
 Content-Type: application/json
@@ -30,13 +32,13 @@ Content-Type: application/json
 ### Get profile
 GET http://localhost:8090/api/users/me HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUzNjA3NTA0LCJleHAiOjE3NTYxOTk1MDR9.xpFov8PHkifvnin89_ajiVBhF0rS1Wa3SqSff-hVeQY
+Authorization: Bearer {{token}}
 
 ### Update profile
 PUT http://localhost:8090/api/users/1 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzUzNjA3NTA0LCJleHAiOjE3NTYxOTk1MDR9.xpFov8PHkifvnin89_ajiVBhF0rS1Wa3SqSff-hVeQY
+Authorization: Bearer {{token}}
 
 {
-    "username": "{{username}} update"
+    "username": "{{username}} update xyz"
 }
